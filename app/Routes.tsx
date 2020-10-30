@@ -9,6 +9,7 @@ import HomePage from './containers/HomePage';
 const LazyCounterPage = React.lazy(() =>
   import(/* webpackChunkName: "CounterPage" */ './containers/CounterPage')
 );
+const LazyTodoPage = React.lazy(() => import('./containers/TodoListPage'));
 
 const CounterPage = (props: Record<string, any>) => (
   <React.Suspense fallback={<h1>Loading...</h1>}>
@@ -16,10 +17,17 @@ const CounterPage = (props: Record<string, any>) => (
   </React.Suspense>
 );
 
+const TodoListPage = (props: Record<string, any>) => (
+  <React.Suspense fallback={<h1>Loading...</h1>}>
+    <LazyTodoPage {...props} />
+  </React.Suspense>
+);
+
 export default function Routes() {
   return (
     <App>
       <Switch>
+        <Route path={routes.TODOLIST} component={TodoListPage} />
         <Route path={routes.COUNTER} component={CounterPage} />
         <Route path={routes.HOME} component={HomePage} />
       </Switch>
