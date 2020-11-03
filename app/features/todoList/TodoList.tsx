@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { Button, Input, List } from 'antd';
 import styles from './TodoList.scss';
 import {
@@ -17,13 +16,10 @@ export default function Counter() {
 
   useEffect(() => {
     dispatch(fetchList());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={styles.content}>
-      <div>
-        <Link to="/">Home</Link>
-      </div>
       <Input
         style={{ width: 360, marginRight: 15 }}
         value={state.inputValue}

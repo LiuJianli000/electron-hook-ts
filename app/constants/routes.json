@@ -1,5 +1,5 @@
 {
-  "HOME": "/",
+  "LOGIN": "/",
   "COUNTER": "/counter",
   "TODOLIST": "/todolist"
 }
